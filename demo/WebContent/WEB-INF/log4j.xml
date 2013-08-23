@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+  <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+    <param name="Target" value="System.out" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="[%5p] %d{ISO8601} [%t] %c - %m%n" />
+    </layout>
+  </appender>
+
+  <appender name="fileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="file" value="C:/logs/osm/log.log" />
+    <param name="append" value="true" />
+    <param name="encoding" value="UTF-8" />
+
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="[%5p] %d{ISO8601} [%t] %c - %m%n" />
+    </layout>
+  </appender>
+
+  <!-- 3rd-Party -->
+  <logger name="org.hibernate" additivity="false">
+    <level value="WARN" />
+    <appender-ref ref="consoleAppender" />
+    <appender-ref ref="fileAppender" />
+  </logger>
+
+  <!-- OSM -->
+  <logger name="csc.osm" additivity="false">
+    <level value="DEBUG" />
+    <appender-ref ref="consoleAppender" />
+    <appender-ref ref="fileAppender" />
+  </logger>
+
+  <root>
+    <level value="INFO" />
+    <appender-ref ref="consoleAppender" />
+    <appender-ref ref="fileAppender" />
+  </root>
+
+</log4j:configuration>

@@ -1,0 +1,30 @@
+#content {
+	clear: both;
+	position: relative;
+	margin-top: 5%
+}
+A.tNav{
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: #ffffff;
+	FONT-FAMILY: verdana, arial;
+	float:right;
+	margin-top:10px;
+}
+A.tNav:link,
+A.tNav:visited {
+	TEXT-DECORATION: none
+}
+
+A.tNav:hover {
+	TEXT-DECORATION: underline
+}
+
+.message {
+	color: red;
+	font-size: 14px;
+}
+
+.message li {
+	list-style: none;
+}

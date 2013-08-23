@@ -1,0 +1,35 @@
+.header {
+	padding: 35px 15px;
+	text-align: center;
+}
+
+.wrapper {
+	width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.content {
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #fff;
+}
+
+.print {
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 5px 15px;
+	border: solid 1px #056fc4;
+	color: #fff;
+	background: url(../img/button.png) repeat-x 0 0;
+	font-weight: bold;
+}
+
+.enword {
+	font-size: 12px;
+	FONT-FAMILY: Arial;
+}
+
+.cn {
+	font-size: 12px;
+}
