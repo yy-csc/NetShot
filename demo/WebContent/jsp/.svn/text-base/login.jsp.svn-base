@@ -1,0 +1,168 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<c:set var="requestVar" value='${pageContext.request}' scope="session"/>
+<html>
+<head>
+<base href="${requestVar.scheme}://${requestVar.serverName}:${requestVar.serverPort}${requestVar.contextPath}/"/>
+<title>Login to OSM</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="CSC,OSM,Login">
+<meta http-equiv="description" content="You can login OSM through this page.">
+
+<link rel="stylesheet" type="text/css" href="css/ui-login.css" />
+<script type="text/javascript">
+	function checkLoginInfo(){
+		var shortID,password;
+		shortID=document.getElementById('txtShortID').value;
+		password=document.getElementById('txtPassword').value;
+		if(shortID==null || shortID.length==0){
+			alert('Please confirm your short ID!');
+			return false;
+		}
+		else if(shortID==null || shortID.length==0){
+			alert('Please confirm your password!');
+			return false;
+		}
+		else
+			return true;
+	}
+</script>
+</head>
+<body>
+	<div style="width:100%;">
+		<div style="width:auto;height:33px;float:left;">
+		<a href="http://www.csc.com/">
+			<img src="img/logo2008.gif" alt="CSC Home Page" border="0">
+		</a>
+		</div>
+		<div style="width:5px;height:33;float:left;background-color:#ffffff;">
+		</div>
+		<div style="width:17px;float:left;">
+			<img src="img/voicebox.gif" border="0">
+		</div>
+		<div style="width:auto;background-color:#919195;height:33px;">
+			<a class="tNav" href="coming.html">Help</a> &nbsp;
+		</div>
+	</div>
+	<div id="content">
+		<table>
+			<tr>
+				<td colspan="3" align="center" valign="middle" height="40"><IMG
+					alt="CSC Global Pass" src="img/CSC_GP_ONE.gif" border=0>
+				</td>
+			</tr>
+			<tr>
+				<td width="10%" />
+				<td>
+					<table width="80%" align="center">
+						<tr>
+							<td align="center"><span
+								style="font-size: 15px; font-weight: bold;">Please Log In</span>
+							</td>
+						</tr>
+						<tr>
+							<td height="5"></td>
+						</tr>
+						<tr>
+							<td height="5" align="center">
+							<s:if	test="hasActionMessages()">
+								<div class="message">
+									<s:actionmessage />
+								</div>
+							</s:if>
+							</td>
+						</tr>
+						<tr>
+							<td height="5"></td>
+						</tr>
+						<tr>
+							<td align="center"><s:form action="login" method="post" onsubmit="return checkLoginInfo();">
+									<table border="1" bordercolor="#666666" bgcolor="#ffffff"
+										rules="none" frame="box" width="280" cellpadding="10"
+										cellspacing="0">
+										<tr>
+											<td>
+												<table border="0" cellpadding="1" cellspacing="2">
+													<tr>
+														<td width="60%">User ID</td>
+														<td width="40%"></td>
+													</tr>
+													<tr>
+														<td valign="top" colspan="2">
+														<s:textfield name="memInfoVO.shortName" id="txtShortID" maxlength="10" size="30"></s:textfield></td>
+													</tr>
+													<tr>
+														<td>Password</td>
+													</tr>
+													<tr>
+														<td valign="top" colspan="2">
+														<s:password name="memInfoVO.pwd" id="txtPassword" maxlength="16" size="30"></s:password></td>
+													</tr>
+													<tr>
+														<td></td>
+													</tr>
+													<tr>
+														<td></td>
+													</tr>
+													<tr>
+														<td colspan="2" align="center" valign="bottom"><s:submit
+																type="image" value="login" title="Login OSM System"
+																src="img/login_dk_regular.gif"
+																onmouseover="this.src='img/login_dk_mouse_over.gif'"
+																onmouseout="this.src='img/login_dk_regular.gif'"></s:submit>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</s:form></td>
+						</tr>
+						<tr>
+							<td align="center" valign="bottom"><a href="forgotPwd"
+								style="font-size: 12px; color: #000000; text-decoration: underline;">Forgot
+									My Password</a></td>
+						</tr>
+						<tr>
+							<td>
+								<p
+									style="FONT-SIZE: 10px; COLOR: #888; FONT-FAMILY: verdana, arial;">
+									<strong>Brief Introduction of Operation Support
+										Management</strong> <br>Operation Support Management(OSM for
+									short) is for the purpose of better managing Service Desk
+									team-members' work hours, performance and related training.The
+									system is at the core of staff and for the convenience of the
+									themselves' self management and team management.It mainly
+									consists of following functions: work force management, project
+									information management, authority management, working time
+									management, work control management etc. <br>
+								</p>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td width="10%" />
+			</tr>
+			<tr>
+				<td width="10%" />
+				<td>
+					<table width="80%" align="center">
+						<tr>
+							<td><span
+								style="FONT-SIZE: 10px; COLOR: #888; FONT-FAMILY: verdana, arial;">©
+									Copyright 2012 Computer Sciences Corporation. All rights
+									reserved. </span></td>
+						</tr>
+					</table>
+				</td>
+				<td width="10%" />
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

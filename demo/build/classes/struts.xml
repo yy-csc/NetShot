@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<!-- <constant name="struts.action.extension" value="action"></constant> -->
+	<constant name="struts.multipart.saveDir" value="/tmp"/>
+	<constant name="struts.ui.theme" value="simple" />
+	<package name="struts2" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="logon" type="redirect">/jsp/login.jsp</result>
+		</global-results>
+		<action name="logon" class="com.netshot.action.LoginAction">
+			<result name="success">/jsp/welcome.jsp</result>
+			<result name="fail">/jsp/login.jsp</result>
+		</action>
+		<action name="logout" class="com.netshot.action.LoginAction"
+			method="logout">
+			<result name="success">/jsp/login.jsp</result>
+			<result name="fail">/jsp/login.jsp</result>
+		</action>
+		<action name="register" class="com.netshot.action.LoginAction"
+			method="register">
+			<result name="success">/jsp/login.jsp</result>
+			<result name="fail">/jsp/register.jsp</result>
+		</action>
+	</package>
+</struts>    

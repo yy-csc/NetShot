@@ -1,0 +1,98 @@
+$(function() {
+
+	$("input:checkbox").click(function() {
+		var sum = 0;
+		$("input:checkbox:checked").each(function() {
+			var id = this.value;
+			$("input:hidden").each(function() {
+				if ($(this).attr("id") == id) {
+					sum += parseFloat(this.value);
+				}
+				;
+
+			});
+
+		});
+		$("#transHours").val(sum);
+	});
+
+	$("#checkAll").click(function() {
+
+		var sum = 0;
+		if (this.checked) {
+			$("input[name='sumVO.tOSumId']").each(function() {
+				this.checked = true;
+			});
+			$("input:checkbox:checked").each(function() {
+				var id = this.value;
+				$("input:hidden").each(function() {
+					if ($(this).attr("id") == id) {
+						sum += parseFloat(this.value);
+					}
+					;
+
+				});
+
+			});
+			$("#transHours").val(sum);
+		} else {
+			$("input[name='sumVO.tOSumId']").each(function() {
+				this.checked = false;
+			});
+			$("#transHours").val(sum);
+		}
+	});
+
+	$("#Transfer").click(function() {
+
+		var trans = 0;
+		$("input:checkbox:checked").each(function() {
+			trans += 1;
+		});
+
+		if (trans == 0) {
+			alert("You are not select any list!");
+			return false;
+		}
+		if (trans == 1 && $("#checkAll").attr("checked")) {
+			alert("You are not select any list!");
+			return false;
+		}
+
+	});
+	$("#approve").click(function() {
+
+		var trans = 0;
+		$("input:checkbox:checked").each(function() {
+			trans += 1;
+		});
+
+		if (trans == 0) {
+			alert("You are not select any list!");
+			return false;
+		}
+		if (trans == 1 && $("#checkAll").attr("checked")) {
+			alert("You are not select any list!");
+			return false;
+		}
+		alert("Confirm to Approve the Payment?");
+	});
+	$("#reject").click(function() {
+
+		var trans = 0;
+		$("input:checkbox:checked").each(function() {
+			trans += 1;
+		});
+
+		if (trans == 0) {
+			alert("You are not select any list!");
+			return false;
+		}
+		if (trans == 1 && $("#checkAll").attr("checked")) {
+			alert("You are not select any list!");
+			return false;
+		}
+		alert("Confirm to Reject the Payment?");
+	});
+
+});
